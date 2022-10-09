@@ -919,32 +919,5 @@ index 223a6da0e6dc..d231101162c9 100644
  	LSM_HOOK_INIT(sock_graft, smack_sock_graft),
  	LSM_HOOK_INIT(inet_conn_request, smack_inet_conn_request),
  	LSM_HOOK_INIT(inet_csk_clone, smack_inet_csk_clone),
-diff --git a/security/smack/smack_netfilter.c b/security/smack/smack_netfilter.c
-index fc7399b45373..635e2339579e 100644
---- a/security/smack/smack_netfilter.c
-+++ b/security/smack/smack_netfilter.c
-@@ -28,8 +28,8 @@ static unsigned int smack_ipv6_output(void *priv,
- 	struct socket_smack *ssp;
- 	struct smack_known *skp;
- 
--	if (sk && sk->sk_security) {
--		ssp = sk->sk_security;
-+	if (sk && smack_sock(sk)) {
-+		ssp = smack_sock(sk);
- 		skp = ssp->smk_out;
- 		skb->secmark = skp->smk_secid;
- 	}
-@@ -46,8 +46,8 @@ static unsigned int smack_ipv4_output(void *priv,
- 	struct socket_smack *ssp;
- 	struct smack_known *skp;
- 
--	if (sk && sk->sk_security) {
--		ssp = sk->sk_security;
-+	if (sk && smack_sock(sk)) {
-+		ssp = smack_sock(sk);
- 		skp = ssp->smk_out;
- 		skb->secmark = skp->smk_secid;
- 	}
--- 
 2.32.0
 
