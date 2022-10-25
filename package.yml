@@ -1,6 +1,6 @@
 name       : linux-zen
-version    : 6.0.0
-release    : 1
+version    : 6.0.3
+release    : 3
 source     :
     - https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.0.tar.xz : 5c2443a5538de52688efb55c27ab0539c1f5eb58c0cfd16a2b9fbb08fd81788e
 license    : GPL-2.0-only
